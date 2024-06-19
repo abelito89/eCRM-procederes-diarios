@@ -229,55 +229,81 @@ def concilia_cobros_semanales_transfermovil_eCRM(db):
         return None
     return conteo
 
-while True:
-    print("Elija el proceder que desea ejecutar, teclee el número del consecutivo y presione Enter a continuación")
-    print("")
-    print("1 - Visualizar la cantidad de problemas con la cola de pagos y recargas de terceros")
-    print("2 - Consultar y corregir los documentos que fallaron al actualizarse el estado de cuenta del eCRM")
-    print("3 - Consultar y corregir los documentos que fallaron al cerrar las gestiones de cobro que han sido pagadas")
-    print("4 - Consultar y corregir los documentos que fallaron al descargar el fichero que contiene todas las operaciones de eCRM recibidas por transfermóvil")
-    print("5 - Consultar y corregir los documentos que fallaron al descargar del ftp espejo los ficheros de los bancos para poder ser visualizados y procesados por Facturación")
-    print("6 - Consultar y corregir los documentos que fallaron al actualizar o crear las tablas para la edad de la deuda (Comercial)")
-    print("7 - Consultar y corregir los documentos que fallaron al conciliar los cobros diarios reportados por el banco como aplicados usando Transfermovil")
-    print("8 - Consultar y corregir los documentos que fallaron al conciliar los cobros semanales reportados por el banco como aplicados usando Transfermovil")
-    print("9 - Aplicar todos los procederes de manera consecutiva")
-    print("Para finalizar la aplicación presione la letra (s)")
-    accion = str(input())
-    if accion == "1":
-        problemas_cola(db)
-        pausa = str(input())
-    elif accion == "2":
-        actualiza_estado_de_cuenta_eCRM(db)
-        pausa = str(input())
-    elif accion == "3":
-        cierra_gestiones_de_cobro_eCRM(db)
-        pausa = str(input())
-    elif accion == "4":
-        export_fichero_Transfermovil_eCRM(db)
-        pausa = str(input())
-    elif accion == "5":
-        descarga_fichero_banco_eCRM(db)
-        pausa = str(input())
-    elif accion == "6":
-        crea_tablas_old_debt_comercial_eCRM(db)
-        pausa = str(input())
-    elif accion == "7":
-        concilia_cobros_transfermovil_eCRM(db)
-        pausa = str(input())
-    elif accion == "8":
-        concilia_cobros_semanales_transfermovil_eCRM(db)
-        pausa = str(input())
-    elif accion == "9":
-        problemas_cola(db)
-        actualiza_estado_de_cuenta_eCRM(db)
-        cierra_gestiones_de_cobro_eCRM(db)
-        export_fichero_Transfermovil_eCRM(db)
-        descarga_fichero_banco_eCRM(db)
-        crea_tablas_old_debt_comercial_eCRM(db)
-        concilia_cobros_transfermovil_eCRM(db)
-        concilia_cobros_semanales_transfermovil_eCRM(db)
-        pausa = str(input())
-    elif accion == "s":
-        break
+def menu_principal():
+    while True:
+        print("\nMenú Principal:")
+        print("1 - Problemas en cola de pagos y recargas de terceros")
+        print("2 - Actualización de estado de cuenta eCRM")
+        print("3 - Cierre de gestiones de cobro eCRM")
+        print("4 - Exportación de fichero Transfermovil eCRM")
+        print("5 - Descarga de fichero banco eCRM")
+        print("6 - Creación de tablas de edad de deuda comercial eCRM")
+        print("7 - Conciliación de cobros diarios Transfermovil eCRM")
+        print("8 - Conciliación de cobros semanales Transfermovil eCRM")
+        print("9 - Ejecutar todos los procedimientos")
+        print("s - Salir")
+        print("\nSeleccione una opción y presione Enter:")
+
+        opcion = input().strip()
+
+        if opcion == "1":
+            os.system('cls')
+            problemas_cola(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "2":
+            os.system('cls')
+            actualiza_estado_de_cuenta_eCRM(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "3":
+            os.system('cls')
+            cierra_gestiones_de_cobro_eCRM(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "4":
+            os.system('cls')
+            export_fichero_Transfermovil_eCRM(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "5":
+            os.system('cls')
+            descarga_fichero_banco_eCRM(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "6":
+            os.system('cls')
+            crea_tablas_old_debt_comercial_eCRM(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "7":
+            os.system('cls')
+            concilia_cobros_transfermovil_eCRM(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "8":
+            os.system('cls')
+            concilia_cobros_semanales_transfermovil_eCRM(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "9":
+            os.system('cls')
+            ejecuta_todos_procedimientos(db)
+            input("Presione Enter para continuar...")
+        elif opcion == "s":
+            os.system('cls')
+            print("Fin del programa")
+            break
+        else:
+            print("Opción no válida. Por favor, intente nuevamente.")
+
+            
+def ejecuta_todos_procedimientos(db):
+    # Aquí puedes llamar a todas las funciones necesarias en orden
+    problemas_cola(db)
+    actualiza_estado_de_cuenta_eCRM(db)
+    cierra_gestiones_de_cobro_eCRM(db)
+    export_fichero_Transfermovil_eCRM(db)
+    descarga_fichero_banco_eCRM(db)
+    crea_tablas_old_debt_comercial_eCRM(db)
+    concilia_cobros_transfermovil_eCRM(db)
+    concilia_cobros_semanales_transfermovil_eCRM(db)
+
+# Asegúrate de definir aquí tus funciones específicas (problemas_cola, actualiza_estado_de_cuenta_eCRM, etc.)
+# y también inicializar tu variable db si es necesario antes de llamar a menu_principal().
+
+menu_principal()
 
 
