@@ -47,12 +47,11 @@ def actualiza_estado_de_cuenta_eCRM(db):
     """
     try:
         actualizacion = db.get_collection('trace_process').update_many(
-            {"insert_sgc_account_state": {"$regex": "\"true\"", "$options" : "i"}},  # Criterio de búsqueda
-            {"$set": {"insert_sgc_account_state": "false"}}  # Operación de actualización
+            {"insert_sgc_account_state": True},  # Criterio de búsqueda
+            {"$set": {"insert_sgc_account_state": False}}  # Operación de actualización
         )
-        conteo = 0
-        if actualizacion.modified_count != None:
-            conteo = actualizacion.modified_count
+        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
+        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo insert_sgc_account_state puestos en false es: {conteo}')
         
 
@@ -75,12 +74,11 @@ def cierra_gestiones_de_cobro_eCRM(db):
     """
     try:
         actualizacion = db.get_collection('trace_process').update_many(
-            {"get_service_to_call_data_from_sgc": {"$regex": "\"true\"", "$options" : "i"}},  # Criterio de búsqueda
-            {"$set": {"get_service_to_call_data_from_sgc": "false"}}  # Operación de actualización
+            {"get_service_to_call_data_from_sgc": True},  # Criterio de búsqueda
+            {"$set": {"get_service_to_call_data_from_sgc": False}}  # Operación de actualización
         )
-        conteo = 0
-        if actualizacion.modified_count != None:
-            conteo = actualizacion.modified_count
+        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
+        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo get_service_to_call_data_from_sgc puestos en false es: {conteo}')
         
 
@@ -103,12 +101,11 @@ def export_fichero_Transfermovil_eCRM(db):
     """
     try:
         actualizacion = db.get_collection('trace_process').update_many(
-            {"export_tranfermovil_operation": {"$regex": "\"true\"", "$options" : "i"}},  # Criterio de búsqueda
-            {"$set": {"export_tranfermovil_operation": "false"}}  # Operación de actualización
+            {"export_tranfermovil_operation": True},  # Criterio de búsqueda
+            {"$set": {"export_tranfermovil_operation": False}}  # Operación de actualización
         )
-        conteo = 0
-        if actualizacion.modified_count != None:
-            conteo = actualizacion.modified_count
+        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
+        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo export_tranfermovil_operation puestos en false es: {conteo}')
         
 
@@ -131,12 +128,11 @@ def descarga_fichero_banco_eCRM(db):
     """
     try:
         actualizacion = db.get_collection('trace_process').update_many(
-            {"insert_in_mongo_ftp_files": {"$regex": "\"true\"", "$options" : "i"}},  # Criterio de búsqueda
-            {"$set": {"insert_in_mongo_ftp_files": "false"}}  # Operación de actualización
+            {"insert_in_mongo_ftp_files": True},  # Criterio de búsqueda
+            {"$set": {"insert_in_mongo_ftp_files": False}}  # Operación de actualización
         )
-        conteo = 0
-        if actualizacion.modified_count != None:
-            conteo = actualizacion.modified_count
+        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
+        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo insert_in_mongo_ftp_files puestos en false es: {conteo}')
         
 
@@ -159,12 +155,11 @@ def crea_tablas_old_debt_comercial_eCRM(db):
     """
     try:
         actualizacion = db.get_collection('trace_process').update_many(
-            {"created_old_debt": {"$regex": "\"true\"", "$options" : "i"}},  # Criterio de búsqueda
-            {"$set": {"created_old_debt": "false"}}  # Operación de actualización
+            {"created_old_debt": True},  # Criterio de búsqueda
+            {"$set": {"created_old_debt": False}}  # Operación de actualización
         )
-        conteo = 0
-        if actualizacion.modified_count != None:
-            conteo = actualizacion.modified_count
+        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
+        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo created_old_debt puestos en false es: {conteo}')
         
 
@@ -187,12 +182,11 @@ def concilia_cobros_transfermovil_eCRM(db):
     """
     try:
         actualizacion = db.get_collection('trace_process').update_many(
-            {"daily_conciliation_transfer_payments": {"$regex": "\"true\"", "$options" : "i"}},  # Criterio de búsqueda
-            {"$set": {"daily_conciliation_transfer_payments": "false"}}  # Operación de actualización
+            {"daily_conciliation_transfer_payments": True},  # Criterio de búsqueda
+            {"$set": {"daily_conciliation_transfer_payments": False}}  # Operación de actualización
         )
-        conteo = 0
-        if actualizacion.modified_count != None:
-            conteo = actualizacion.modified_count
+        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
+        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo daily_conciliation_transfer_payments puestos en false es: {conteo}')
         
 
@@ -215,12 +209,11 @@ def concilia_cobros_semanales_transfermovil_eCRM(db):
     """
     try:
         actualizacion = db.get_collection('trace_process').update_many(
-            {"weekly_conciliation_transfer_payments": {"$regex": "\"true\"", "$options" : "i"}},  # Criterio de búsqueda
-            {"$set": {"weekly_conciliation_transfer_payments": "false"}}  # Operación de actualización
+            {"weekly_conciliation_transfer_payments": True},  # Criterio de búsqueda
+            {"$set": {"weekly_conciliation_transfer_payments": False}}  # Operación de actualización
         )
-        conteo = 0
-        if actualizacion.modified_count != None:
-            conteo = actualizacion.modified_count
+        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
+        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo weekly_conciliation_transfer_payments puestos en false es: {conteo}')
         
 

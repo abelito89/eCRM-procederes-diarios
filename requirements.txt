@@ -1,3 +1,5 @@
 dnspython==2.3.0
 pymongo==3.4.0
 python-dotenv
+unittest
+pytest

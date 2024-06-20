@@ -76,8 +76,8 @@ def test_actualiza_estado_de_cuenta_eCRM(mocker) -> None:
     assert result == 5
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"insert_sgc_account_state": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"insert_sgc_account_state": "false"}}
+        {"insert_sgc_account_state": True},
+        {"$set": {"insert_sgc_account_state": False}}
     )
 
 def test_actualiza_estado_de_cuenta_eCRM_no_match(mocker) -> None:
@@ -106,8 +106,8 @@ def test_actualiza_estado_de_cuenta_eCRM_no_match(mocker) -> None:
     assert result == 0
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"insert_sgc_account_state": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"insert_sgc_account_state": "false"}}
+        {"insert_sgc_account_state": True},
+        {"$set": {"insert_sgc_account_state": False}}
     )
 
 
@@ -137,8 +137,8 @@ def test_cierra_gestiones_de_cobro_eCRM(mocker) -> None:
     assert result == 5
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"get_service_to_call_data_from_sgc": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"get_service_to_call_data_from_sgc": "false"}}
+        {"get_service_to_call_data_from_sgc": True},
+        {"$set": {"get_service_to_call_data_from_sgc": False}}
     )
 
 def test_cierra_gestiones_de_cobro_eCRM_no_match(mocker) -> None:
@@ -167,8 +167,8 @@ def test_cierra_gestiones_de_cobro_eCRM_no_match(mocker) -> None:
     assert result == 0
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"get_service_to_call_data_from_sgc": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"get_service_to_call_data_from_sgc": "false"}}
+        {"get_service_to_call_data_from_sgc": True},
+        {"$set": {"get_service_to_call_data_from_sgc": False}}
     )
 
 
@@ -198,8 +198,8 @@ def test_export_fichero_Transfermovil_eCRM(mocker) -> None:
     assert result == 5
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"export_tranfermovil_operation": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"export_tranfermovil_operation": "false"}}
+        {"export_tranfermovil_operation": True},
+        {"$set": {"export_tranfermovil_operation": False}}
     )
 
 def test_export_fichero_Transfermovil_eCRM_no_match(mocker) -> None:
@@ -228,8 +228,8 @@ def test_export_fichero_Transfermovil_eCRM_no_match(mocker) -> None:
     assert result == 0
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"export_tranfermovil_operation": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"export_tranfermovil_operation": "false"}}
+        {"export_tranfermovil_operation": True},
+        {"$set": {"export_tranfermovil_operation": False}}
     )
 
 
@@ -259,8 +259,8 @@ def test_descarga_fichero_banco_eCRM(mocker) -> None:
     assert result == 5
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"insert_in_mongo_ftp_files": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"insert_in_mongo_ftp_files": "false"}}
+        {"insert_in_mongo_ftp_files": True},
+        {"$set": {"insert_in_mongo_ftp_files": False}}
     )
 
 def test_descarga_fichero_banco_eCRM_no_match(mocker) -> None:
@@ -289,8 +289,8 @@ def test_descarga_fichero_banco_eCRM_no_match(mocker) -> None:
     assert result == 0
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"insert_in_mongo_ftp_files": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"insert_in_mongo_ftp_files": "false"}}
+        {"insert_in_mongo_ftp_files": True},
+        {"$set": {"insert_in_mongo_ftp_files": False}}
     )
 
 
@@ -320,8 +320,8 @@ def test_crea_tablas_old_debt_comercial_eCRM(mocker) -> None:
     assert result == 5
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"created_old_debt": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"created_old_debt": "false"}}
+        {"created_old_debt": True},
+        {"$set": {"created_old_debt": False}}
     )
 
 def test_crea_tablas_old_debt_comercial_eCRM_no_match(mocker) -> None:
@@ -350,8 +350,8 @@ def test_crea_tablas_old_debt_comercial_eCRM_no_match(mocker) -> None:
     assert result == 0
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"created_old_debt": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"created_old_debt": "false"}}
+        {"created_old_debt": True},
+        {"$set": {"created_old_debt": False}}
     )
 
 
@@ -381,8 +381,8 @@ def test_concilia_cobros_transfermovil_eCRM(mocker) -> None:
     assert result == 5
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"daily_conciliation_transfer_payments": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"daily_conciliation_transfer_payments": "false"}}
+        {"daily_conciliation_transfer_payments": True},
+        {"$set": {"daily_conciliation_transfer_payments": False}}
     )
 
 def test_concilia_cobros_transfermovil_eCRM_no_match(mocker) -> None:
@@ -411,8 +411,8 @@ def test_concilia_cobros_transfermovil_eCRM_no_match(mocker) -> None:
     assert result == 0
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"daily_conciliation_transfer_payments": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"daily_conciliation_transfer_payments": "false"}}
+        {"daily_conciliation_transfer_payments": True},
+        {"$set": {"daily_conciliation_transfer_payments": False}}
     )
 
 
@@ -442,8 +442,8 @@ def test_concilia_cobros_semanales_transfermovil_eCRM(mocker) -> None:
     assert result == 5
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"weekly_conciliation_transfer_payments": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"weekly_conciliation_transfer_payments": "false"}}
+        {"weekly_conciliation_transfer_payments": True},
+        {"$set": {"weekly_conciliation_transfer_payments": False}}
     )
 
 def test_concilia_cobros_semanales_transfermovil_eCRM_no_match(mocker) -> None:
@@ -472,6 +472,6 @@ def test_concilia_cobros_semanales_transfermovil_eCRM_no_match(mocker) -> None:
     assert result == 0
     mock_db.get_collection.assert_called_once_with('trace_process')
     mock_collection.update_many.assert_called_once_with(
-        {"weekly_conciliation_transfer_payments": {"$regex": "\"true\"", "$options": "i"}},
-        {"$set": {"weekly_conciliation_transfer_payments": "false"}}
+        {"weekly_conciliation_transfer_payments": True},
+        {"$set": {"weekly_conciliation_transfer_payments": False}}
     )
