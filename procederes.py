@@ -51,10 +51,8 @@ def actualiza_estado_de_cuenta_eCRM(db):
             {"$set": {"insert_sgc_account_state": False}}  # Operación de actualización
         )
         print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
+        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo insert_sgc_account_state puestos en false es: {conteo}')
-        
-
     except Exception as e:
         print(f'Error al procesar la consulta: {e}')
         return None
@@ -78,7 +76,7 @@ def cierra_gestiones_de_cobro_eCRM(db):
             {"$set": {"get_service_to_call_data_from_sgc": False}}  # Operación de actualización
         )
         print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
+        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo get_service_to_call_data_from_sgc puestos en false es: {conteo}')
         
 
@@ -105,7 +103,7 @@ def export_fichero_Transfermovil_eCRM(db):
             {"$set": {"export_tranfermovil_operation": False}}  # Operación de actualización
         )
         print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
+        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo export_tranfermovil_operation puestos en false es: {conteo}')
         
 
@@ -132,7 +130,7 @@ def descarga_fichero_banco_eCRM(db):
             {"$set": {"insert_in_mongo_ftp_files": False}}  # Operación de actualización
         )
         print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
+        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo insert_in_mongo_ftp_files puestos en false es: {conteo}')
         
 
@@ -159,7 +157,7 @@ def crea_tablas_old_debt_comercial_eCRM(db):
             {"$set": {"created_old_debt": False}}  # Operación de actualización
         )
         print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
+        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo created_old_debt puestos en false es: {conteo}')
         
 
@@ -186,7 +184,7 @@ def concilia_cobros_transfermovil_eCRM(db):
             {"$set": {"daily_conciliation_transfer_payments": False}}  # Operación de actualización
         )
         print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
+        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo daily_conciliation_transfer_payments puestos en false es: {conteo}')
         
 
@@ -213,7 +211,7 @@ def concilia_cobros_semanales_transfermovil_eCRM(db):
             {"$set": {"weekly_conciliation_transfer_payments": False}}  # Operación de actualización
         )
         print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.modified_count if actualizacion.modified_count is not None else 0
+        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
         print(f'La cantidad de documentos encontrados y con el campo weekly_conciliation_transfer_payments puestos en false es: {conteo}')
         
 

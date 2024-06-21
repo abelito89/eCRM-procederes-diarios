@@ -58,8 +58,9 @@ def test_actualiza_estado_de_cuenta_eCRM(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 5}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 5
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -88,8 +89,9 @@ def test_actualiza_estado_de_cuenta_eCRM_no_match(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 0}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 0
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -119,8 +121,9 @@ def test_cierra_gestiones_de_cobro_eCRM(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 5}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 5
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -149,8 +152,9 @@ def test_cierra_gestiones_de_cobro_eCRM_no_match(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 0}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 0
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -180,8 +184,9 @@ def test_export_fichero_Transfermovil_eCRM(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 5}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 5
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -210,8 +215,9 @@ def test_export_fichero_Transfermovil_eCRM_no_match(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 0}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 0
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -241,8 +247,9 @@ def test_descarga_fichero_banco_eCRM(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 5}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 5
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -271,8 +278,9 @@ def test_descarga_fichero_banco_eCRM_no_match(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 0}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 0
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -302,8 +310,9 @@ def test_crea_tablas_old_debt_comercial_eCRM(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 5}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 5
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -332,8 +341,9 @@ def test_crea_tablas_old_debt_comercial_eCRM_no_match(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 0}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 0
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -363,8 +373,9 @@ def test_concilia_cobros_transfermovil_eCRM(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 5}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 5
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -393,8 +404,9 @@ def test_concilia_cobros_transfermovil_eCRM_no_match(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 0}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 0
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -424,8 +436,9 @@ def test_concilia_cobros_semanales_transfermovil_eCRM(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 5}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 5
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
@@ -454,8 +467,9 @@ def test_concilia_cobros_semanales_transfermovil_eCRM_no_match(mocker) -> None:
         mocker: El fixture de mock de pytest para crear objetos mock.
     """
     # Crear un mock para el resultado de update_many
+    mock_raw_result = {'nModified': 0}
     mock_update_result = mocker.MagicMock()
-    mock_update_result.modified_count = 0
+    mock_update_result.raw_result = mock_raw_result
 
     # Crear un mock para la colección 'trace_process'
     mock_collection = mocker.MagicMock(spec=Collection)
