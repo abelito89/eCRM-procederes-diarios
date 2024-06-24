@@ -46,13 +46,13 @@ def actualiza_estado_de_cuenta_eCRM(db):
         int: El número de documentos actualizados. Retorna 0 si no se encontraron documentos que coincidan con el criterio de búsqueda.
     """
     try:
+        # Contar los documentos que cumplen con el criterio antes de la actualización
+        conteo = db.get_collection('trace_process').count({"insert_sgc_account_state": True})
+        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"insert_sgc_account_state": True},  # Criterio de búsqueda
             {"$set": {"insert_sgc_account_state": False}}  # Operación de actualización
         )
-        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
-        print(f'La cantidad de documentos encontrados y con el campo insert_sgc_account_state puestos en false es: {conteo}')
     except Exception as e:
         print(f'Error al procesar la consulta: {e}')
         return None
@@ -71,14 +71,13 @@ def cierra_gestiones_de_cobro_eCRM(db):
         int: El número de documentos actualizados. Retorna 0 si no se encontraron documentos que coincidan con el criterio de búsqueda.
     """
     try:
+        # Contar los documentos que cumplen con el criterio antes de la actualización
+        conteo = db.get_collection('trace_process').count({"get_service_to_call_data_from_sgc": True})
+        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"get_service_to_call_data_from_sgc": True},  # Criterio de búsqueda
             {"$set": {"get_service_to_call_data_from_sgc": False}}  # Operación de actualización
         )
-        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
-        print(f'La cantidad de documentos encontrados y con el campo get_service_to_call_data_from_sgc puestos en false es: {conteo}')
-        
 
     except Exception as e:
         print(f'Error al procesar la consulta: {e}')
@@ -98,14 +97,13 @@ def export_fichero_Transfermovil_eCRM(db):
         int: El número de documentos actualizados. Retorna 0 si no se encontraron documentos que coincidan con el criterio de búsqueda.
     """
     try:
+        # Contar los documentos que cumplen con el criterio antes de la actualización
+        conteo = db.get_collection('trace_process').count({"insert_in_mongo_ftp_files": True})
+        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"export_tranfermovil_operation": True},  # Criterio de búsqueda
             {"$set": {"export_tranfermovil_operation": False}}  # Operación de actualización
         )
-        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
-        print(f'La cantidad de documentos encontrados y con el campo export_tranfermovil_operation puestos en false es: {conteo}')
-        
 
     except Exception as e:
         print(f'Error al procesar la consulta: {e}')
@@ -125,14 +123,13 @@ def descarga_fichero_banco_eCRM(db):
         int: El número de documentos actualizados. Retorna 0 si no se encontraron documentos que coincidan con el criterio de búsqueda.
     """
     try:
+        # Contar los documentos que cumplen con el criterio antes de la actualización
+        conteo = db.get_collection('trace_process').count({"insert_in_mongo_ftp_files": True})
+        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"insert_in_mongo_ftp_files": True},  # Criterio de búsqueda
             {"$set": {"insert_in_mongo_ftp_files": False}}  # Operación de actualización
         )
-        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
-        print(f'La cantidad de documentos encontrados y con el campo insert_in_mongo_ftp_files puestos en false es: {conteo}')
-        
 
     except Exception as e:
         print(f'Error al procesar la consulta: {e}')
@@ -152,15 +149,14 @@ def crea_tablas_old_debt_comercial_eCRM(db):
         int: El número de documentos actualizados. Retorna 0 si no se encontraron documentos que coincidan con el criterio de búsqueda.
     """
     try:
+        # Contar los documentos que cumplen con el criterio antes de la actualización
+        conteo = db.get_collection('trace_process').count({"created_old_debt": True})
+        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"created_old_debt": True},  # Criterio de búsqueda
             {"$set": {"created_old_debt": False}}  # Operación de actualización
         )
-        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
-        print(f'La cantidad de documentos encontrados y con el campo created_old_debt puestos en false es: {conteo}')
         
-
     except Exception as e:
         print(f'Error al procesar la consulta: {e}')
         return None
@@ -179,14 +175,14 @@ def concilia_cobros_transfermovil_eCRM(db):
         int: El número de documentos actualizados. Retorna 0 si no se encontraron documentos que coincidan con el criterio de búsqueda.
     """
     try:
+         # Contar los documentos que cumplen con el criterio antes de la actualización
+        conteo = db.get_collection('trace_process').count({"daily_conciliation_transfer_payments": True})
+        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
+        
         actualizacion = db.get_collection('trace_process').update_many(
             {"daily_conciliation_transfer_payments": True},  # Criterio de búsqueda
             {"$set": {"daily_conciliation_transfer_payments": False}}  # Operación de actualización
         )
-        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
-        print(f'La cantidad de documentos encontrados y con el campo daily_conciliation_transfer_payments puestos en false es: {conteo}')
-        
 
     except Exception as e:
         print(f'Error al procesar la consulta: {e}')
@@ -206,18 +202,20 @@ def concilia_cobros_semanales_transfermovil_eCRM(db):
         int: El número de documentos actualizados. Retorna 0 si no se encontraron documentos que coincidan con el criterio de búsqueda.
     """
     try:
+        # Contar los documentos que cumplen con el criterio antes de la actualización
+        conteo = db.get_collection('trace_process').count({"weekly_conciliation_transfer_payments": True})
+        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
+        
+        # Realizar la actualización
         actualizacion = db.get_collection('trace_process').update_many(
             {"weekly_conciliation_transfer_payments": True},  # Criterio de búsqueda
             {"$set": {"weekly_conciliation_transfer_payments": False}}  # Operación de actualización
         )
-        print(f"Resultado de la actualizacion: {actualizacion.raw_result}")
-        conteo = actualizacion.raw_result.get('nModified', 0) if actualizacion.modified_count is not None else 0
-        print(f'La cantidad de documentos encontrados y con el campo weekly_conciliation_transfer_payments puestos en false es: {conteo}')
         
-
     except Exception as e:
         print(f'Error al procesar la consulta: {e}')
         return None
+    
     return conteo
 
 def menu_principal():
