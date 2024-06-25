@@ -48,7 +48,7 @@ def actualiza_estado_de_cuenta_eCRM(db):
     try:
         # Contar los documentos que cumplen con el criterio antes de la actualización
         conteo = db.get_collection('trace_process').count({"insert_sgc_account_state": True})
-        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
+        print(f'Documentos con insert_sgc_account_state en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"insert_sgc_account_state": True},  # Criterio de búsqueda
             {"$set": {"insert_sgc_account_state": False}}  # Operación de actualización
@@ -73,7 +73,7 @@ def cierra_gestiones_de_cobro_eCRM(db):
     try:
         # Contar los documentos que cumplen con el criterio antes de la actualización
         conteo = db.get_collection('trace_process').count({"get_service_to_call_data_from_sgc": True})
-        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
+        print(f'Documentos con get_service_to_call_data_from_sgc en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"get_service_to_call_data_from_sgc": True},  # Criterio de búsqueda
             {"$set": {"get_service_to_call_data_from_sgc": False}}  # Operación de actualización
@@ -99,7 +99,7 @@ def export_fichero_Transfermovil_eCRM(db):
     try:
         # Contar los documentos que cumplen con el criterio antes de la actualización
         conteo = db.get_collection('trace_process').count({"insert_in_mongo_ftp_files": True})
-        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
+        print(f'Documentos con export_tranfermovil_operation en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"export_tranfermovil_operation": True},  # Criterio de búsqueda
             {"$set": {"export_tranfermovil_operation": False}}  # Operación de actualización
@@ -125,7 +125,7 @@ def descarga_fichero_banco_eCRM(db):
     try:
         # Contar los documentos que cumplen con el criterio antes de la actualización
         conteo = db.get_collection('trace_process').count({"insert_in_mongo_ftp_files": True})
-        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
+        print(f'Documentos con insert_in_mongo_ftp_files en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"insert_in_mongo_ftp_files": True},  # Criterio de búsqueda
             {"$set": {"insert_in_mongo_ftp_files": False}}  # Operación de actualización
@@ -151,7 +151,7 @@ def crea_tablas_old_debt_comercial_eCRM(db):
     try:
         # Contar los documentos que cumplen con el criterio antes de la actualización
         conteo = db.get_collection('trace_process').count({"created_old_debt": True})
-        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
+        print(f'Documentos con created_old_debt en true antes de la actualización: {conteo}')
         actualizacion = db.get_collection('trace_process').update_many(
             {"created_old_debt": True},  # Criterio de búsqueda
             {"$set": {"created_old_debt": False}}  # Operación de actualización
@@ -177,7 +177,7 @@ def concilia_cobros_transfermovil_eCRM(db):
     try:
          # Contar los documentos que cumplen con el criterio antes de la actualización
         conteo = db.get_collection('trace_process').count({"daily_conciliation_transfer_payments": True})
-        print(f'Documentos con weekly_conciliation_transfer_payments en true antes de la actualización: {conteo}')
+        print(f'Documentos con daily_conciliation_transfer_payments en true antes de la actualización: {conteo}')
         
         actualizacion = db.get_collection('trace_process').update_many(
             {"daily_conciliation_transfer_payments": True},  # Criterio de búsqueda
