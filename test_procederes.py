@@ -89,6 +89,21 @@ def test_actualiza_estado_de_cuenta_eCRM(mock_trace_process_collection, mock_dat
         {"insert_sgc_account_state": True},
         {"$set":{"insert_sgc_account_state": False}}
     )
+
+
+def test_actualiza_estado_de_cuenta_eCRM_no_documents(mock_trace_process_collection, mock_database) -> None:
+    # Preparar datos de prueba para el caso donde no se encuentran documentos
+    mock_trace_process_collection.count.return_value = 0
+
+    # Llamar a la función
+    result = actualiza_estado_de_cuenta_eCRM(mock_database)
+
+    # Verificar el resultado
+    assert result == 0, "El número de documentos actualizados no coincide con lo esperado."
+    mock_trace_process_collection.update_many.assert_called_once_with(
+        {"insert_sgc_account_state": True},
+        {"$set": {"insert_sgc_account_state": False}}
+    )
 """
 ----------------------------------------------------------------------------------------------
 """
