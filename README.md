@@ -7,7 +7,7 @@ Este proyecto contiene un conjunto de scripts en Python que interactúan con una
 
 - Python 3.6+
 - MongoDB
-- Paquetes Python: pymongo, python-dotenv, dnspython, unittest, pytest
+- Paquetes Python: pymongo == 3.4.0, python-dotenv, dnspython, unittest, pytest
 
 ## Instalación
 
